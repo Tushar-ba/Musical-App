@@ -105,6 +105,22 @@ contract Marketplace is ERC721Holder, ReentrancyGuard {
         emit ListingBought(_listingId, msg.sender, listing.listingPrice, true);
     }
 
+    function removeListing(uint256 _listingId) external nonReentrant {
+        Listing storage listing = listings[_listingId];
+        require(listing.listingPrice > 0, "Listing does not exist");
+        require(!listing.sold, "Listing already sold");
+        require(listing.seller == msg.sender, "Only the seller can remove the listing");
+
+        bytes32 listingKey = keccak256(abi.encodePacked(listing.tokenAddress, listing.tokenId));
+        isTokenListed[listingKey] = false;
+
+        IERC721(listing.tokenAddress).safeTransferFrom(address(this), listing.seller, listing.tokenId);
+
+        delete listings[_listingId];
+
+        emit ListingDeleted(_listingId);
+    }
+
     function _distributeRoyalties(
         address tokenAddress,
         uint256 tokenId,
