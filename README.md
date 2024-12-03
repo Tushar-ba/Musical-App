@@ -2,7 +2,7 @@
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
 
-
+Deployed and verified on polygon amoy
 Royalty NFT contract :`0x2762f40C69159CD84679fdC0219506e1447028EE`
 
 Marketplace : `0xBeFf21002d0d6c22E1Dfd6FEf17692f211262153`
