@@ -50,12 +50,8 @@ contract Marketplace is ERC721Holder, ReentrancyGuard {
             fullOwnershipAvailable: _fullOwnershipAvailable,
             sold: false
         });
-
-        // Remove the grantRole call from here
-
         isTokenListed[listingKey] = true;
         IERC721(_tokenAddress).safeTransferFrom(msg.sender, address(this), _tokenId);
-
         emit ListingCreated(nextListingId, msg.sender, _listingPrice);
         return nextListingId++;
     }
