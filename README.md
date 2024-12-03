@@ -1,6 +1,9 @@
-# Sample Hardhat Project
+# Market Place and NFT royalty contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+`npm i` to install
+`npx hardhat test` to run Tests 
+`npx run scripts/depoly.js --network <your network>` to depoly 
+`npx hardhat verify --network <your network> <contract address>` to verify the contract
 
 Deployed and verified on polygon amoy
 Royalty NFT contract :`0x2762f40C69159CD84679fdC0219506e1447028EE`
